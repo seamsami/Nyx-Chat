@@ -1,0 +1,141 @@
+{
+  "name": "nyx-chat",
+  "version": "1.0.0",
+  "description": "Revolutionary chat application with AI-powered features and stunning UI",
+  "main": "server/dist/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "start": "npm run server:start",
+    "build": "npm run server:build && npm run client:build",
+    "test": "npm run server:test && npm run client:test",
+    "lint": "npm run server:lint && npm run client:lint",
+    "lint:fix": "npm run server:lint:fix && npm run client:lint:fix",
+    "format": "npm run server:format && npm run client:format",
+    "clean": "npm run server:clean && npm run client:clean",
+    "setup": "npm run install:all && npm run build",
+    "install:all": "npm install && npm run client:install && npm run server:install",
+    "client:dev": "cd client && npm start",
+    "client:build": "cd client && npm run build",
+    "client:test": "cd client && npm test",
+    "client:lint": "cd client && npm run lint",
+    "client:lint:fix": "cd client && npm run lint:fix",
+    "client:format": "cd client && npm run format",
+    "client:install": "cd client && npm install",
+    "client:clean": "cd client && rm -rf build node_modules",
+    "server:dev": "cd server && npm run dev",
+    "server:start": "cd server && npm start",
+    "server:build": "cd server && npm run build",
+    "server:test": "cd server && npm test",
+    "server:lint": "cd server && npm run lint",
+    "server:lint:fix": "cd server && npm run lint:fix",
+    "server:format": "cd server && npm run format",
+    "server:install": "cd server && npm install",
+    "server:clean": "cd server && rm -rf dist node_modules",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "deploy:staging": "npm run build && npm run deploy:staging:server",
+    "deploy:production": "npm run build && npm run deploy:production:server",
+    "deploy:staging:server": "echo 'Deploy to staging server'",
+    "deploy:production:server": "echo 'Deploy to production server'",
+    "backup:db": "mongodump --uri mongodb://localhost:27017/nyx-chat --out ./backups/$(date +%Y%m%d_%H%M%S)",
+    "restore:db": "mongorestore --uri mongodb://localhost:27017/nyx-chat --drop",
+    "seed:db": "cd server && npm run seed",
+    "migrate:db": "cd server && npm run migrate",
+    "health:check": "curl -f http://localhost:5000/health && curl -f http://localhost:3000",
+    "logs:server": "tail -f server/logs/combined.log",
+    "logs:error": "tail -f server/logs/error.log",
+    "security:audit": "npm audit && cd client && npm audit && cd ../server && npm audit",
+    "security:fix": "npm audit fix && cd client && npm audit fix && cd ../server && npm audit fix",
+    "update:deps": "npm update && cd client && npm update && cd ../server && npm update",
+    "analyze:bundle": "cd client && npm run build && npx webpack-bundle-analyzer build/static/js/*.js",
+    "analyze:server": "cd server && npm run build && npx webpack-bundle-analyzer dist/bundle.js",
+    "docs:generate": "typedoc --out docs/api server/src && cd client && npm run docs:generate",
+    "docs:serve": "cd docs && python -m http.server 8080",
+    "release:patch": "npm version patch && git push && git push --tags",
+    "release:minor": "npm version minor && git push && git push --tags",
+    "release:major": "npm version major && git push && git push --tags",
+    "precommit": "npm run lint && npm run test",
+    "prepush": "npm run build && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/nyx-chat.git"
+  },
+  "keywords": [
+    "chat",
+    "messaging",
+    "real-time",
+    "websocket",
+    "react",
+    "nodejs",
+    "typescript",
+    "ai-powered",
+    "glassmorphism",
+    "modern-ui",
+    "voice-chat",
+    "video-chat",
+    "file-sharing",
+    "end-to-end-encryption",
+    "progressive-web-app"
+  ],
+  "author": {
+    "name": "Nyx Team",
+    "email": "team@nyx-chat.dev",
+    "url": "https://nyx-chat.dev"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seamsami/Nyx-Chat/issues"
+  },
+  "homepage": "https://nyx-chat.dev",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.0",
+    "typedoc": "^0.25.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "private": true,
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/nyx-chat"
+  },
+  "contributors": [
+    {
+      "name": "Your Name",
+      "email": "siamsami308@gmail.com",
+      "url": "https://github.com/seamsami"
+    }
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

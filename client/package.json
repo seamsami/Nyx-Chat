@@ -1,0 +1,94 @@
+{
+  "name": "nyx-chat-client",
+  "version": "1.0.0",
+  "description": "Revolutionary chat application - Frontend",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.20",
+    "@reduxjs/toolkit": "^1.9.7",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "5.0.1",
+    "socket.io-client": "^4.7.4",
+    "three": "^0.158.0",
+    "@react-three/fiber": "^8.15.11",
+    "@react-three/drei": "^9.88.17",
+    "react-spring": "^9.7.3",
+    "react-use-gesture": "^9.1.3",
+    "react-intersection-observer": "^9.5.3",
+    "react-virtualized": "^9.22.5",
+    "react-window": "^1.8.8",
+    "react-hotkeys-hook": "^4.4.1",
+    "react-dropzone": "^14.2.3",
+    "react-color": "^2.19.3",
+    "emoji-mart": "^5.5.2",
+    "date-fns": "^2.30.0",
+    "lodash": "^4.17.21",
+    "uuid": "^9.0.1",
+    "web-vitals": "^3.5.0",
+    "workbox-background-sync": "^7.0.0",
+    "workbox-broadcast-update": "^7.0.0",
+    "workbox-cacheable-response": "^7.0.0",
+    "workbox-core": "^7.0.0",
+    "workbox-expiration": "^7.0.0",
+    "workbox-google-analytics": "^7.0.0",
+    "workbox-navigation-preload": "^7.0.0",
+    "workbox-precaching": "^7.0.0",
+    "workbox-range-requests": "^7.0.0",
+    "workbox-routing": "^7.0.0",
+    "workbox-strategies": "^7.0.0",
+    "workbox-streams": "^7.0.0",
+    "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/react-color": "^3.0.9",
+    "@types/react-virtualized": "^9.21.29",
+    "@types/react-window": "^1.8.8",
+    "@types/uuid": "^9.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write src/**/*.{ts,tsx,css,md}"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:5000"
+}
