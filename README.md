@@ -86,8 +86,8 @@ Nyx Chat is not just another messaging app - it's a complete communication revol
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/nyx-chat.git
-   cd nyx-chat
+   git clone https://github.com/seamsami/Nyx-Chat.git
+   cd Nyx-Chat
    ```
 
 2. **Install dependencies**
